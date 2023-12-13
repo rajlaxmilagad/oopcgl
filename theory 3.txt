@@ -1,0 +1,260 @@
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+21 Department of Computer Engineering, NBNSSOE, Pune
+In protected mode, the public and protected members of Base class becomes protected members of
+Derived class.
+private:
+In private mode the public and protected members of Base class become private members of Derived
+class.
+Types of Inheritance
+In C++, we have 5 different types of Inheritance. Namely,
+1. Single Inheritance
+2. Multiple Inheritance
+3. Hierarchical Inheritance
+4. Multilevel Inheritance
+5. Hybrid Inheritance
+Single Inheritance:
+In this type of inheritance one derived class inherits from only one base class. It is the most simplest
+form of Inheritance.
+Syntax:
+class subclass_name : access_modebase_class
+{
+//body of subclass
+};
+// Single Inheritence
+#include <iostream>
+usingnamespacestd;
+classVehicle
+{
+public:
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+22 Department of Computer Engineering, NBNSSOE, Pune
+Vehicle()
+{
+cout<< "This is a Vehicle"<<endl;
+}
+};
+classCar: publicVehicle
+{
+};
+int main()
+{
+Car obj;
+return0;
+}
+Output:
+This is a vehicle
+Multiple Inheritance:
+In this type of inheritance a single derived class may inherit from two or more than two base classes.
+Syntax:
+classsubclass_name : access_mode base_class1, access_mode base_class2, ....
+{
+//body of subclass
+};
+// Multiple Inheritence
+#include <iostream>
+usingnamespacestd;
+classVehicle {
+public:
+Vehicle()
+{
+cout<< "This is a Vehicle"<<endl;
+}
+};
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+23 Department of Computer Engineering, NBNSSOE, Pune
+classFourWheeler {
+public:
+FourWheeler()
+{
+cout<< "This is a 4 wheeler Vehicle"<<endl;
+}
+};
+classCar: publicVehicle, publicFourWheeler
+{
+};
+int main()
+{
+Car obj;
+return 0;
+}
+Output:
+This is a Vehicle
+This is a 4 wheeler Vehicle
+Multilevel Inheritance:
+In this type of inheritance the derived class inherits from a class, which in turn inherits from some
+other class. The Super class for one, is sub class for the other.
+// Multilevel Inheritance
+#include <iostream>
+using namespace std;
+classVehicle
+{
+public:
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+24 Department of Computer Engineering, NBNSSOE, Pune
+Vehicle()
+{
+cout<< "This is a Vehicle"<<endl;
+}
+};
+Class fourWheeler : public Vehicle
+{ public:
+fourWheeler()
+{
+cout<<"Objects with 4 wheels are vehicles"<<endl;
+}
+};
+Class Car: public fourWheeler{
+public:
+car()
+{
+cout<<"Car has 4 Wheels"<<endl;
+}
+};
+int main()
+{
+Car obj;
+return0;
+}
+output:
+This is a Vehicle
+Objects with 4 wheels are vehicles
+Car has 4 Wheels
+Hierarchical Inheritance:
+In this type of inheritance, multiple derived classes inherits from a single base class.
+// Hierarchical Inheritance
+#include <iostream>
+using namespace std;
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+25 Department of Computer Engineering, NBNSSOE, Pune
+classVehicle
+{
+public:
+Vehicle()
+{
+cout<< "This is a Vehicle"<<endl;
+}
+};
+classCar: publicVehicle
+{
+};
+classBus: publicVehicle
+{
+};
+intmain()
+{
+Car obj1;
+Bus obj2;
+return0;
+}
+Output:
+This is a Vehicle
+This is a Vehicle
+Hybrid Inheritance:
+Hybrid Inheritance is combination of any 2 or more types of inheritances.
+//Hybrid Inheritance
+#include <iostream>
+using namespace std;
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+26 Department of Computer Engineering, NBNSSOE, Pune
+classVehicle
+{
+public:
+Vehicle()
+{
+cout<< "This is a Vehicle"<<endl;
+}
+};
+classFare
+{
+public:
+Fare()
+{
+cout<<"Fare of Vehicle\n";
+}
+};
+classCar: publicVehicle
+{
+};
+classBus: publicVehicle, publicFare
+{
+};
+int main({
+Bus obj2;
+return0;
+}
+Output:
+This is a Vehicle
+Fare of Vehicle
+Exception Handling:
+Exception handling is part of C++ and object oriented programming. they are added in C++ to handle
+the unwanted situations during program execution. If we do not type the program correctly then ot might
+result in errors. Main purpose of exception handling is to identify and report the runtime error in the
+program.
+Famous examples are divide by zero,array index out of bound error,file not found,device not found,etc.
+C++ exception handling is possible with three keywords iz. try,catch and throw.Exception handling
+performs the following tasks:-
+Find the problem in the given code. It is also called as hit exception.
+ It informs error has occurred. It is called as throwing the exception.
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+27 Department of Computer Engineering, NBNSSOE, Pune
+ We receive the roe info. It is called as catching the exception.
+It takes the corrective action.It is called as exception handling.
+TRY:- It is block code in which there are chances of runtime error.This block is followed by one or
+more catch block.Most error prone code is added in try block.
+CATCH:- This is used to catch th exception thrown by the try blok. In catch block we take corrective
+action on throwing exception. If files are openend , we can take corrective action like closing file
+handles,closing database connetions,saving unsaved work ,etc.
+THROW:- Program throws exception when problem occurs.It is possible with throw keyword.
+SNYTAX:=
+//normal program code
+try{
+throw exception
+}
+catch(argument)
+{
+...
+...
+}
+//rest of the code
+// Exception Handling
+#include <iostream>
+using namespace std;
+int main()
+{
+int x = -1;
+// Some code
+cout<< "Before try \n";
+try {
+cout<< "Inside try \n";
+if (x < 0)
+Object Oriented Programming Laboratory S.E.C.E(Sem-I) [2022-23]
+28 Department of Computer Engineering, NBNSSOE, Pune
+{
+throw x;
+cout<< "After throw (Never executed) \n";
+}
+}
+catch (int x ) {
+cout<< "Exception Caught \n";
+}
+cout<< "After catch (Will be executed) \n";
+return 0;
+}
+Output:
+Before try
+Inside try
+Exception Caught
+After catch (Will be executed)
+Facilities:
+Linux Operating Systems,G++
+Algorithm:
+1. Start.
+2. Create classes Publication, book and tape.
+3 .Publication class having data members title, price.
+4.Class Book having data members pages and member functions getdata() and pudata().
+5. Class Tape having data members minutes and member functions getdata() and pudata().
+6. Create an object bof class book and object t of class tape.
+7. Stop.
+Input: A class publication that stores the title (a string) and price (type float) of
+publications. Derives two classes Book and Tape.
+Output:
