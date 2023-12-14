@@ -1,0 +1,86 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class publication
+{
+private:
+ string title;
+ float price;
+public:
+void getdata()
+{
+  cout<<"enter title of book";
+  cin>>title;
+  cout<<"enter price of book";
+  cin>>price;
+}
+void putdata()const
+{
+ cout<<"\ntitle:"<<title;
+ cout<<"\nprice:"<<price;
+ }
+};
+
+class book:private publication
+{
+private:
+int pages;
+public:
+void getdata()
+{
+try{
+publication::getdata();
+cout<<"the no of pages";
+cin>>pages;
+if(pages==0){
+throw pages;
+}
+}catch(int pages){
+ cout<<"Exception caught"<<endl;
+}
+}
+void putdata()const
+{
+publication::putdata();
+cout<<"\npages:"<<pages;
+ }
+};
+
+class tape:private publication
+{
+private:
+float time;
+public:
+void getdata()
+{
+try{
+publication::getdata();
+cout<<"enter playing time";
+cin>>time;
+if(time==0){
+throw time;
+}
+}catch(float time){
+cout<<"Exception caught"<<endl;
+}
+}
+void putdata()const
+{
+publication::putdata();
+cout<<"\nplaying time"<<time;
+ }
+};
+
+int main()
+{
+ book book1;
+ tape tape1;
+ book1.getdata();
+ tape1.getdata();
+ book1.putdata();
+ tape1.putdata();
+ cout<<endl;
+ return 0;
+}
